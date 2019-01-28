@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "drom custom new tab",
+  "version": "1.0",
+  "description": "My own custom new tab page",
+  "author": "@drom98",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+}

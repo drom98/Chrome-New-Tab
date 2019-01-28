@@ -1,0 +1,47 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+
+body {
+  font-family: 'Open Sans';
+  background-image: url(assets/bg.jpg);
+  background-size: cover;
+}
+
+.box-date {
+  margin-bottom: 38px;
+}
+
+.greeting {
+  margin: 0;
+  font-weight: 700;
+  color: #425670;
+}
+
+.date {
+  margin: 0;
+  font-weight: 400;
+  color: #7B899B;
+  font-size: 19.5px;
+}
+
+img {
+  float: left;
+  width: 73px;
+}
+
+.divDate {
+  margin-top: 10%;
+}
+
+.cityName {
+  color: #425670;
+}
+
+.temp, .description {
+  margin-left: 90px;
+  width: 80%;
+  font-size: 15px;
+  font-weight: 400;
+  color: #7B899B;
+}
