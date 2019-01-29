@@ -30,7 +30,7 @@ body {
 img {
   float: left;
   width: 73px;
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
 }
 
 .divDate {
@@ -49,4 +49,5 @@ img {
   font-size: 15px;
   font-weight: 400;
   color: #7B899B;
+  text-transform: capitalize;
 }

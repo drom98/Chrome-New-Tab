@@ -11,6 +11,7 @@ const descEl = document.querySelector(".description");
 fetch(API_URL)
   .then(response => response.json())
   .then(result => {
+    console.log(result);
     tempEl.textContent = Math.ceil(result.main.temp * 10) /10 + ("ºC");
     cityNameEl.textContent = result.name;
     descEl.textContent = result.weather[0].description;
