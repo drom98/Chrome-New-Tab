@@ -1,5 +1,5 @@
 const cidade = 'Castelo Branco';
-const API_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=pt';
+const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=pt';
 
 //Get HTML elements
 const cityNameEl = document.querySelector(".cityName");
@@ -8,7 +8,7 @@ const tempEl = document.querySelector(".temp");
 const descEl = document.querySelector(".description");
 
 //Fetch OpenWeatherMap API
-fetch(API_URL)
+fetch(weatherAPI)
   .then(response => response.json())
   .then(result => {
     console.log(result);
@@ -52,3 +52,36 @@ if(minutes < 9) {
 }
 const timeElement = document.querySelector(".date");
 timeElement.textContent = (semana + ", " + hour + ":" + minutes);
+
+//Football API
+const footballAPI = 'http://api.football-data.org/';
+const primeiraLiga = 2017;
+
+//Fetch Primeira Liga Standings
+fetch(footballAPI + 'v2/competitions/' + primeiraLiga + '/standings', {
+  headers: {"X-Auth-Token" : "026a9b64b04e4fb8a3bcf7fb0dac2ae0"}
+})
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+    const position = result.standings[0].table;
+    let i = 0;
+    for (i; i < position.length; i++) {
+      const clubLogo = result.standings[0].table[i].team.crestUrl;
+      const clubName = result.standings[0].table[i].team.name;
+      const clubPoints = result.standings[0].table[i].points;
+      insertPosition(position, i, clubLogo, clubName, clubPoints);
+    }
+  });
+
+function insertPosition(position, i, clubLogo, clubName, clubPoints) {
+  const tableEl = document.querySelector("tbody");
+  const posTemplate = 
+    `<tr>
+      <td class="position">${position[i].position}.</td>
+      <td><img class="teamLogo" src="${clubLogo}"></td>
+      <td class="team">${clubName}</td>
+      <td class="points">${clubPoints}</td>
+    </tr>`
+  tableEl.insertAdjacentHTML('beforeend', posTemplate);
+}
