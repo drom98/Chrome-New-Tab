@@ -4,34 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="newStyle.css">
   <title>Novo separador</title>
 </head>
 <body>
-  <div class="row center-xs middle-xs">
-    <div class="col-xs-2 start-xs divDate">
-      <div class="box-date">
-        <h1 class="greeting animated fadeInUp"></h1>
-        <p class="date animated fadeInUp"></p>
+  <div class="container animated fadeIn">
+    <div class="weather-container">
+      <div class="weather-icon"></div>
+      <div class="location-container">
+          <p class="location-text animated fadeInUp"></p>
+          <h1 class="temp animated fadeInUp"></h1>
       </div>
-      <div class="box">
-        <h2 class="cityName animated fadeInUp"></h2>
-        <img src="" class="weatherIcon animated fadeInUp">
-        <p class="temp animated fadeInUp"></p>
-        <p class="description animated fadeInUp"></p>
+      <div class="weekDay-container">
+        <p class="week-day animated fadeInUp"></p>
+        <p class="weather-info animated fadeInUp"></p>
       </div>
     </div>
-    <div class="col-xs-6">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="4">
-              <img class="compLogo" src="http://ligaportugal.pt/Content/img/logo-40anos@2x.png" alt="">
-            </th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div class="standings-container">
+      <div class="league-logo"></div>
+      
     </div>
   </div>
   <script src="js/index.js"></script>

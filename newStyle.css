@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url("animate.css");
+
+body {
+  font-family: 'Lato';
+  color: #302B63;
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  z-index: -3;
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(180deg, rgba(236,236,236,1) 0%, rgba(36,36,62,1) 250%);
+
+  width: 350px;
+  height: 400px;
+
+  border-radius: 12px;
+
+}
+
+.weather-container {
+  border-radius: 12px;
+  z-index: -2;
+  width: 100%;
+  height: 180px;
+  
+}
+
+.weather-icon {
+  border-radius: 12px;
+  opacity: 0.55;
+  position: absolute;
+  width: 168px;
+  height: 180px;
+  background-image: url('assets/icons/03d.png');
+  background-size: contain;
+  background-size: 130%;
+  background-position-x: -40px;
+  background-position-y: -40px;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 30px;
+  height: 180px;
+  float: left;
+}
+
+.location-text {
+  margin-bottom: -5px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.temp {
+  margin: 0;
+  font-weight: 300;
+  font-size: 60px;
+}
+
+.weekDay-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 30px;
+  float: right;
+  width: 35%;
+  height: 180px;
+}
+
+.week-day {
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+.weather-info {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.week-day, .weather-info {
+  font-size: 18px;
+}
+
+.standings-container {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 140px;
+}
+
+.league-logo {
+  width: 100%;
+  height: 40px;
+
+  background-image: url('assets/liga-portugal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
