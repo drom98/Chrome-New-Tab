@@ -16,7 +16,7 @@ fetch(weatherAPI)
     //tempEl.textContent = Math.ceil(result.main.temp * 10) /10 + ("ºC");
     cityNameEl.textContent = result.name;
     descEl.textContent = result.weather[0].description;
-    iconEl.src = ("chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + result.weather[0].icon + ".png");
+    //iconEl.src = ("chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + result.weather[0].icon + ".png");
   });
 
 //Get Date and Time
@@ -42,15 +42,6 @@ const footballAPI = 'http://api.football-data.org/';
 const primeiraLiga = 2017;
 
 const fetchFootballAPI = async () => {
-  /*
-  const apiFetch = await fetch(footballAPI + 'v2/competitions/' + primeiraLiga + '/standings', {
-    headers: {"X-Auth-Token" : TokenKey}
-  })
-  document.querySelector("tbody").insertAdjacentHTML('afterbegin', "Loading...");
-  const response = await apiFetch.json()
-  const position = await response.standings[0].table
-  */
-  
   //Fetch Primeira Liga Standings
   await fetch(footballAPI + 'v2/competitions/' + primeiraLiga + '/standings', {
     headers: {"X-Auth-Token" : TokenKey}
@@ -72,15 +63,17 @@ const fetchFootballAPI = async () => {
     document.querySelector("tbody").insertAdjacentHTML('afterbegin', error);
   }); 
 }
-//fetchFootballAPI();
+fetchFootballAPI();
+
 function insertData(position, i, clubLogo, clubName, clubPoints) {
   const tableEl = document.querySelector("tbody");
   const posTemplate = 
     `<tr>
-      <td class="position">${position[i].position}.</td>
-      <td><img class="teamLogo" src="${clubLogo}"></td>
-      <td class="team">${clubName}</td>
-      <td class="points">${clubPoints}</td>
-    </tr>`
+      <th class="position">${position[i].position}</th>
+    </tr>
+    <tr>
+      <th>eced</th>
+    </tr>
+    `
   tableEl.insertAdjacentHTML('beforeend', posTemplate);
 }
