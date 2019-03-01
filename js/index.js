@@ -42,20 +42,24 @@ const TokenKey = '026a9b64b04e4fb8a3bcf7fb0dac2ae0';
 const footballAPI = 'http://api.football-data.org/';
 const primeiraLiga = 2017;
 
-function fetchFootballAPI() {
+async function fetchFootballAPI() {
   //Fetch Primeira Liga Standings
-  const response = fetch(footballAPI + 'v2/competitions/' + primeiraLiga + '/standings', {
+  const response = await fetch(footballAPI + 'v2/competitions/' + primeiraLiga + '/standings', {
     headers: {"X-Auth-Token" : TokenKey}
-  })
-  //const teamData = response.json();
-  
-  const position = response.standings[0].table;
-  response.forEach(element => {
+  });
+  const teamData = await response.json();
+  console.log(teamData);
+  const position = teamData.standings[0].table;
+  position.forEach(function(element) {
+    console.log(element);
+
+
+    /*
     const clubLogo = element.standings.table.team.crestUrl;
     const clubName = element.standings.table.team.name;
     const clubPoints = element.standings.table.points;
-    insertData(position, clubLogo, clubName, clubPoints);
-    /*
+    //insertData(position, clubLogo, clubName, clubPoints);
+    
     let i = 0;
     for (i; i < position.length; i++) {
       const clubLogo = result.standings[0].table[i].team.crestUrl;
@@ -71,6 +75,15 @@ function fetchFootballAPI() {
 }
 fetchFootballAPI();
 
+function setPositions() {
+  const tableEl = document.querySelector("table");
+  const template = 
+  `
+  
+  `
+  tableEl.insertAdjacentElement('afterbegin', template);
+}
+
 function insertData(position, i, clubLogo, clubName, clubPoints) {
   const tableEl = document.querySelector("table");
   const posTemplate = 
@@ -78,5 +91,5 @@ function insertData(position, i, clubLogo, clubName, clubPoints) {
       <th>${position[i].position}
     </tr>
     <tr>${clubPoints}</tr>`
-  tableEl.insertAdjacentHTML('beforeend', posTemplate);
+  tableEl.insertAdjacentHTML('afterbegin', posTemplate);
 }
