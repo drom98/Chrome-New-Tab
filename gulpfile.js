@@ -19,8 +19,9 @@ function style() {
 // $ gulp style
 exports.style = style;
 
-function reload() {
+function reload(done) {
 	browserSync.reload();
+	done();
 }
 
 function watch(){
