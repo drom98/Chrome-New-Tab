@@ -76,10 +76,10 @@ async function fetchFootballAPI() {
 fetchFootballAPI();
 
 function setPositions() {
-  const tableEl = document.querySelector("table");
+  const tableEl = document.querySelector("thead");
   const template = 
   `
-  
+  <
   `
   tableEl.insertAdjacentElement('afterbegin', template);
 }

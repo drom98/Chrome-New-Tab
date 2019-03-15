@@ -1,0 +1,24 @@
+{
+  "name": "drom-new-tab",
+  "version": "1.0.0",
+  "description": "Custom Chrome new tab page.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drom98/Chrome-New-Tab.git"
+  },
+  "author": "drom98",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drom98/Chrome-New-Tab/issues"
+  },
+  "homepage": "https://github.com/drom98/Chrome-New-Tab#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
