@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Custom Chrome new tab page.",
   "main": "gulpfile.js",
-  "dependencies": {
-    "browser-sync": "^2.26.3"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.26.3",
     "gulp": "github:gulpjs/gulp",
     "gulp-cli": "github:gulpjs/gulp-cli",
     "gulp-sass": "^4.0.2"
