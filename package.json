@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Custom Chrome new tab page.",
   "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.26.3"
+  },
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp",
+    "gulp-cli": "github:gulpjs/gulp-cli",
+    "gulp-sass": "^4.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,10 +23,5 @@
   "bugs": {
     "url": "https://github.com/drom98/Chrome-New-Tab/issues"
   },
-  "homepage": "https://github.com/drom98/Chrome-New-Tab#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-sass": "^4.0.2"
-  }
+  "homepage": "https://github.com/drom98/Chrome-New-Tab#readme"
 }
