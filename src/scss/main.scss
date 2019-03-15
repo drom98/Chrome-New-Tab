@@ -3,5 +3,12 @@
 @import '_colors';
 
 body {
-  background-color: lighten($teal, 60%);
+  font-family: 'Lato';
+  background-color: lighten($teal, 70%);
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
