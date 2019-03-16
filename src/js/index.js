@@ -19,22 +19,26 @@ async function fetchWeatherAPI() {
   descEl.textContent = await apiData.weather[0].description;
   iconEl.style.backgroundImage = await "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
   loader.style.display = "none";
+  await inserDate();
 }
 fetchWeatherAPI();
 
 //Get Date and Time
-const time = new Date();
-const days = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
-const semana = days[time.getDay()];
-let hour = time.getHours();
-let minutes = time.getMinutes();
+function inserDate() {
+  const time = new Date();
+  const days = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+  const semana = days[time.getDay()];
+  let hour = time.getHours();
+  let minutes = time.getMinutes();
 
-//Insert Date and Time to the DOM
-if(hour < 9) {
-  hour = ("0" + hour);
+  //Insert Date and Time to the DOM
+  if(hour < 9) {
+    hour = ("0" + hour);
+  }
+  if(minutes < 9) {
+    minutes = ("0" + minutes);
+  }
+  const timeElement = document.querySelector(".week-day");
+  timeElement.textContent = (semana + ", " + hour + ":" + minutes);
 }
-if(minutes < 9) {
-  minutes = ("0" + minutes);
-}
-const timeElement = document.querySelector(".week-day");
-timeElement.textContent = (semana + ", " + hour + ":" + minutes);
+
