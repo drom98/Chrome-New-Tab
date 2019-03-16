@@ -20,9 +20,9 @@ svg {
 }
 
 path {
-  stroke: #9ea1a4;
+  stroke: $grey;
   stroke-width: 0.25;
-  fill: #241E20;
+  fill: darken($grey, 15%);
 }
 
 #cloud {
@@ -31,7 +31,7 @@ path {
 }
 
 #cloud path {
-  fill: #efefef;
+  fill: lighten($grey, 34%);
 }
 
 #sun {
@@ -53,7 +53,7 @@ path {
 
 #sun path {
   stroke-width: 0.18;
-  fill: #9ea1a4;
+  fill: darken($grey, 15%);
 }
 
 
@@ -78,7 +78,7 @@ path {
 
 .drop {
   opacity: 1;
-  background: #9ea1a4;
+  background: $grey;
   display: block;
   float: left;
   width: 3px;
@@ -149,13 +149,12 @@ path {
 }
 
 .text {
-	font-family: Helvetica, 'Helvetica Neue', sans-serif;
 	letter-spacing: 1px;
 	text-align: center;
 	margin-left: -43px;
 	font-weight: bold;
 	margin-top: 20px;
 	font-size: 11px;
-	color: #a0a0a0;
+	color: $grey;
 	width: 200px;
 }

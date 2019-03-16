@@ -7,6 +7,11 @@ const iconEl = document.querySelector(".weather-icon");
 const tempEl = document.querySelector(".temp");
 const descEl = document.querySelector(".weather-info");
 const loader = document.querySelector(".loader-wrapper");
+const settingsIcon = document.querySelector(".settings-icon");
+
+settingsIcon.onclick = function() {
+  console.log("cenas");
+}
 
 //Fetch OpenWeatherMap API
 async function fetchWeatherAPI() {
@@ -21,7 +26,6 @@ async function fetchWeatherAPI() {
   loader.style.display = "none";
   await inserDate();
 }
-fetchWeatherAPI();
 
 //Get Date and Time
 function inserDate() {
@@ -42,3 +46,4 @@ function inserDate() {
   timeElement.textContent = (semana + ", " + hour + ":" + minutes);
 }
 
+fetchWeatherAPI();
