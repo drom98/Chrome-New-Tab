@@ -11,7 +11,7 @@ body {
   height: 100vh; }
 
 .container {
-  color: #475c67;
+  color: #525252;
   z-index: -3;
   display: flex;
   flex-direction: column;

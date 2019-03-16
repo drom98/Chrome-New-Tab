@@ -8,17 +8,16 @@ const tempEl = document.querySelector(".temp");
 const descEl = document.querySelector(".weather-info");
 
 //Fetch OpenWeatherMap API
-fetch(weatherAPI)
-  .then(response => response.json())
-  .then(result => {
-    console.log(result);
-    tempEl.textContent = Math.round(result.main.temp) + ("º");
-    //tempEl.textContent = Math.ceil(result.main.temp * 10) /10 + ("ºC");
-    cityNameEl.textContent = result.name;
-    descEl.textContent = result.weather[0].description;
-    iconEl.style.backgroundImage = "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + result.weather[0].icon + ".png')";
-    //iconEl.src = ("chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + result.weather[0].icon + ".png");
-  });
+async function fetchWeatherAPI() {
+  let apiData = await fetch(weatherAPI);
+  apiData = await apiData.json();
+  //Insert data into the DOM
+  tempEl.textContent = await Math.round(apiData.main.temp) + ("º");
+  cityNameEl.textContent = await apiData.name;
+  descEl.textContent = await apiData.weather[0].description;
+  iconEl.style.backgroundImage = await "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
+}
+fetchWeatherAPI();
 
 //Get Date and Time
 const time = new Date();
