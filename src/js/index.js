@@ -6,9 +6,11 @@ const cityNameEl = document.querySelector(".location-text");
 const iconEl = document.querySelector(".weather-icon");
 const tempEl = document.querySelector(".temp");
 const descEl = document.querySelector(".weather-info");
+const loader = document.querySelector(".loader-wrapper");
 
 //Fetch OpenWeatherMap API
 async function fetchWeatherAPI() {
+  loader.style.display = "block";
   let apiData = await fetch(weatherAPI);
   apiData = await apiData.json();
   //Insert data into the DOM
@@ -16,6 +18,7 @@ async function fetchWeatherAPI() {
   cityNameEl.textContent = await apiData.name;
   descEl.textContent = await apiData.weather[0].description;
   iconEl.style.backgroundImage = await "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
+  loader.style.display = "none";
 }
 fetchWeatherAPI();
 
