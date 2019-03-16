@@ -160,7 +160,8 @@ body {
   width: 350px;
   height: 400px;
   border-radius: 12px;
-  cursor: default; }
+  cursor: default;
+  z-index: 999; }
 
 .weather-container {
   border-radius: 12px;

@@ -10,13 +10,20 @@ const tempEl = document.querySelector(".temp");
 const descEl = document.querySelector(".weather-info");
 const loader = document.querySelector(".loader-wrapper");
 const settingsIcon = document.querySelector(".settings-icon");
+const backButton = document.querySelector(".back-icon");
 
 settingsIcon.onclick = function() {
-  containerEl.classList.add('animated', 'flipOutY');
+  settingsPage.classList.add('animated', 'fadeInLeft');
+  settingsPage.style.display = "flex";
+}
+
+backButton.onclick = function() {
+  settingsPage.classList.remove('animated', 'fadeInLeft');
+  settingsPage.classList.add('animated', 'fadeOutLeft');
   setTimeout(function() {
-    settingsPage.classList.add('animated', 'flipInY');
-    settingsPage.style.display = "flex";
-  }, 710);
+    settingsPage.style.display = "none";
+    settingsPage.classList.remove('animated', 'fadeOutLeft');
+  }, 1000);
 }
 
 //Fetch OpenWeatherMap API
