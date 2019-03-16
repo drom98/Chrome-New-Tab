@@ -2,6 +2,8 @@ const cidade = 'Castelo Branco';
 const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=pt';
 
 //Get HTML elements
+const containerEl = document.querySelector(".container");
+const settingsPage = document.querySelector(".settings-page");
 const cityNameEl = document.querySelector(".location-text");
 const iconEl = document.querySelector(".weather-icon");
 const tempEl = document.querySelector(".temp");
@@ -10,7 +12,11 @@ const loader = document.querySelector(".loader-wrapper");
 const settingsIcon = document.querySelector(".settings-icon");
 
 settingsIcon.onclick = function() {
-  console.log("cenas");
+  containerEl.classList.add('animated', 'flipOutY');
+  setTimeout(function() {
+    settingsPage.classList.add('animated', 'flipInY');
+    settingsPage.style.display = "flex";
+  }, 710);
 }
 
 //Fetch OpenWeatherMap API

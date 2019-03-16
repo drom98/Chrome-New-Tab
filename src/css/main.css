@@ -141,14 +141,26 @@ body {
   background-color: #fcffff;
   width: 350px;
   height: 400px;
-  border-radius: 12px; }
+  border-radius: 12px;
+  cursor: default; }
 
-.settings-wrapper {
+.settings-icon {
   position: absolute;
   width: 24px;
   height: auto; }
-  .settings-wrapper i {
+  .settings-icon i {
     cursor: pointer; }
+
+.settings-page {
+  position: absolute;
+  display: none;
+  color: #525252;
+  flex-direction: column;
+  background-color: #fcffff;
+  width: 350px;
+  height: 400px;
+  border-radius: 12px;
+  cursor: default; }
 
 .weather-container {
   border-radius: 12px;
