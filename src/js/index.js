@@ -26,17 +26,21 @@ backButton.onclick = function() {
   }, 1000);
 }
 
+function renderUI(apiData) {
+  //Insert data into the DOM
+  tempEl.textContent = Math.round(apiData.main.temp) + ("º");
+  cityNameEl.textContent = apiData.name;
+  descEl.textContent = apiData.weather[0].description;
+  iconEl.style.backgroundImage = "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
+  loader.style.display = "none";
+}
+
 //Fetch OpenWeatherMap API
 async function fetchWeatherAPI() {
   loader.style.display = "block";
   let apiData = await fetch(weatherAPI);
   apiData = await apiData.json();
-  //Insert data into the DOM
-  tempEl.textContent = await Math.round(apiData.main.temp) + ("º");
-  cityNameEl.textContent = await apiData.name;
-  descEl.textContent = await apiData.weather[0].description;
-  iconEl.style.backgroundImage = await "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
-  loader.style.display = "none";
+  await renderUI(apiData);
   await inserDate();
 }
 
