@@ -3,6 +3,7 @@ const lang = 'pt';
 const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=' + lang;
 
 //Get HTML elements
+const bodyEl = document.querySelector("body");
 const containerEl = document.querySelector(".container");
 const settingsPage = document.querySelector(".settings-page");
 const cityNameEl = document.querySelector(".location-text");
@@ -12,6 +13,29 @@ const descEl = document.querySelector(".weather-info");
 const loader = document.querySelector(".loader-wrapper");
 const settingsIcon = document.querySelector(".settings-icon");
 const backButton = document.querySelector(".back-icon");
+
+function setBackground() {
+  bodyEl.style.backgroundColor = "#262626";
+  const time = new Date();
+  const hour = time.getHours();
+
+  const mBg01 = "../assets/backgrounds/morning/01.jpg";
+  const mBg02 = "../assets/backgrounds/morning/02.jpg";
+  const aftBg01 = "../assets/backgrounds/afternoon/01.jpg";
+  const aftBg02 = "../assets/backgrounds/afternoon/02.jpg";
+  const nightBg01 = "../assets/backgrounds/night/01.jpg";
+  const nightBg02 = "../assets/backgrounds/night/02.jpg";
+  const nightBg03 = "../assets/backgrounds/night/03.jpg";
+  const morningBg = [mBg01, mBg02];
+  const afternoonBg = [aftBg01, aftBg02];
+  const nightBg = [nightBg01, nightBg02, nightBg03];
+
+  if(hour > 18) {
+    const randomBg = nightBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+    bodyEl.classList.add('animated', 'fadeIn');
+  }
+}
 
 settingsIcon.onclick = function() {
   settingsPage.classList.add('animated', 'fadeInLeft');
@@ -28,18 +52,19 @@ backButton.onclick = function() {
 }
 
 function renderUI(apiData) {
+  containerEl.style.display = "flex";
+  containerEl.classList.add('animated', 'fadeIn');
   //Insert data into the DOM
   tempEl.textContent = Math.round(apiData.main.temp) + ("º");
   cityNameEl.textContent = apiData.name;
   descEl.textContent = apiData.weather[0].description;
   iconEl.style.backgroundImage = "url('chrome-extension://fliffphbmddklhlnjlejgglgbofacjec/assets/icons/" + apiData.weather[0].icon + ".png')";
-  loader.style.display = "none";
 }
 
 //Fetch OpenWeatherMap API
 async function fetchWeatherAPI() {
-  loader.style.display = "block";
   let apiData = await fetch(weatherAPI);
+  await setBackground();
   apiData = await apiData.json();
   await renderUI(apiData);
   await inserDate();
