@@ -1,5 +1,6 @@
-const cidade = 'Castelo Branco';
-const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=pt';
+const cityName = 'Castelo Branco';
+const lang = 'pt';
+const weatherAPI = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName + ',pt&appid=74ceb3b2518f00e1284ce45255274e36&units=metric&lang=' + lang;
 
 //Get HTML elements
 const containerEl = document.querySelector(".container");
