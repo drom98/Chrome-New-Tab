@@ -30,8 +30,20 @@ function setBackground() {
   const afternoonBg = [aftBg01, aftBg02];
   const nightBg = [nightBg01, nightBg02, nightBg03];
 
-  if(hour > 18) {
+  if(hour > 23) {
     const randomBg = nightBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+    bodyEl.classList.add('animated', 'fadeIn');
+  }
+  else if(hour > 12) {
+    //Afternoon
+    const randomBg = afternoonBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+    bodyEl.classList.add('animated', 'fadeIn');
+  }
+  else if(hour > 0) {
+    //Morning
+    const randomBg = morningBg[Math.floor(Math.random()*nightBg.length)];
     bodyEl.style.backgroundImage = `url('${randomBg}')`;
     bodyEl.classList.add('animated', 'fadeIn');
   }
@@ -64,10 +76,10 @@ function renderUI(apiData) {
 //Fetch OpenWeatherMap API
 async function fetchWeatherAPI() {
   let apiData = await fetch(weatherAPI);
-  await setBackground();
   apiData = await apiData.json();
   await renderUI(apiData);
   await inserDate();
+  setBackground();
 }
 
 //Get Date and Time
