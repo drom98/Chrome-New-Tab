@@ -14,7 +14,7 @@ const loader = document.querySelector(".loader-wrapper");
 const settingsIcon = document.querySelector(".settings-icon");
 const backButton = document.querySelector(".back-icon");
 
-function setBackground() {
+async function setBackground() {
   bodyEl.style.backgroundColor = "#262626";
   const time = new Date();
   const hour = time.getHours();
@@ -30,21 +30,21 @@ function setBackground() {
   const afternoonBg = [aftBg01, aftBg02];
   const nightBg = [nightBg01, nightBg02, nightBg03];
 
-  if(hour > 23) {
-    const randomBg = nightBg[Math.floor(Math.random()*nightBg.length)];
-    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+  if(hour > 19) {
+    const randomBg = await nightBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = await `url('${randomBg}')`;
     bodyEl.classList.add('animated', 'fadeIn');
   }
-  else if(hour > 12) {
+  else if(hour >= 12) {
     //Afternoon
-    const randomBg = afternoonBg[Math.floor(Math.random()*nightBg.length)];
-    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+    const randomBg = await afternoonBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = await `url('${randomBg}')`;
     bodyEl.classList.add('animated', 'fadeIn');
   }
   else if(hour > 0) {
     //Morning
-    const randomBg = morningBg[Math.floor(Math.random()*nightBg.length)];
-    bodyEl.style.backgroundImage = `url('${randomBg}')`;
+    const randomBg = await morningBg[Math.floor(Math.random()*nightBg.length)];
+    bodyEl.style.backgroundImage = await `url('${randomBg}')`;
     bodyEl.classList.add('animated', 'fadeIn');
   }
 }
@@ -78,8 +78,8 @@ async function fetchWeatherAPI() {
   let apiData = await fetch(weatherAPI);
   apiData = await apiData.json();
   await renderUI(apiData);
-  await inserDate();
-  setBackground();
+  setTimeout(inserDate(), 60000);
+  await setBackground();
 }
 
 //Get Date and Time
